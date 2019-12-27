@@ -1,7 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
 import 'package:flutter_clean_todo/app/pages/home/home_presenter.dart';
 import 'package:flutter_clean_todo/domain/entities/todo.dart';
 import 'package:flutter_clean_todo/domain/repositories/todos_repository.dart';
+import 'package:flutter_clean_todo/app/pages/passcode/passcode_view.dart';
 
 class HomeController extends Controller {
   final HomePresenter presenter;
@@ -15,6 +17,13 @@ class HomeController extends Controller {
     initListeners();
     loadOnStart();
     retrieveData();
+  }
+
+  @override
+  void onResumed() {
+    Navigator.of(getContext()).pushReplacement(
+      MaterialPageRoute(builder: (_) => PasscodeView())
+    );
   }
 
   @override

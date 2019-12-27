@@ -18,6 +18,7 @@ class _HomeViewState extends ViewState<HomeView, HomeController> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
+        key: globalKey,
         appBar: AppBar(title: Text('Home')),
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
